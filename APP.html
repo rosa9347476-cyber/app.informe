@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANDES TEC - Potosí</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#070D1A;color:white}
+.pantalla{display:none;padding:18px;padding-bottom:95px;min-height:100vh}
+.pantalla.activa{display:block;animation:entrar .35s ease}
+@keyframes entrar{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.btn{width:100%;padding:15px;border:none;border-radius:15px;font-weight:700;font-size:14px;cursor:pointer;margin-top:11px}
+.btn-dorado{background:linear-gradient(90deg,#F59E0B,#FBBF24);color:#111}
+.btn-blanco{background:white;color:#111}
+.btn-borde{background:transparent;color:white;border:1px solid rgba(255,255,255,.35)}
+.btn-volver{(255,255,255,.12);color:white;padding:9px 14px;border-radius:12px;border:none;font-weight:600}
+input,select{width:100%;padding:14px;border-radius:14px;border:none;margin-top:10px;font-size:14px;background:#1A2E4D;color:white;outline:none}
+.card{background:#111F33;padding:18px;border-radius:22px;margin-top:14px;border:1px solid rgba(255,255,255,.08)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mini{background:#1A2E4D;padding:14px;border-radius:16px;text-align:center}
+.mini b{font-size:20px;display:block}
+.alerta{background:linear-gradient(135deg,#EF4444,#B91C1C);padding:16px;border-radius:20px}
+.ok{background:linear-gradient(135deg,#065F46,#059669);padding:16px;border-radius:20px}
+.barra{height:8px;background:#24344F;border-radius:20px;overflow:hidden;margin-top:6px}
+.barra i{display:block;height:100%;background:#EF4444}
+.logo-box{width:140px;height:140px;margin:0 auto;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 15px 35px rgba(0,0,0,.4);border:4px solid #FFD166}
+.badge{background:#FFD166;color:#111;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:800}
+.opcion{background:white;color:#111;border-radius:22px;padding:16px;margin-top:14px;text-align:left;display:flex;gap:14px;align-items:center;cursor:pointer}
+.tabs{position:fixed;bottom:0;left:0;right:0;background:#0A1426;display:flex;justify-content:space-around;padding:10px 4px 14px;border-top:1px solid rgba(255,255,255,.12);z-index:99}
+.tabs div{text-align:center;font-size:11px;opacity:.65;cursor:pointer}
+.tabs div.activo{opacity:1;color:#FFD166;font-weight:700}
+.tabs b{font-size:19px;display:block}
+.ra-box{background:linear-gradient(180deg,#1E3A5F,#0B2A4A);border:2px dashed #FFD166;border-radius:20px;padding:18px;text-align:center;margin-top:14px}
+.puntos{background:#FFD166;color:#111;padding:8px 12px;border-radius:12px;font-weight:800;display:inline-block;margin-top:8px}
+</style>
+</head>
+<body>
+
+<!-- 1. LOGIN -->
+<div id="login" class="pantalla activa" style="background:linear-gradient(180deg,#0B2A4A,#0F766E 60%,#070D1A);text-align:center;padding-top:30px">
+ <!-- LOGO TIPO PORTADA DE INFORME - ANDES TEC -->
+<div style="background:white;padding:20px;border-radius:18px;text-align:center;border:3px solid #0B2A4A;max-width:360px;margin:0 auto;font-family:Arial,sans-serif">
+  <p style="font-size:10px;letter-spacing:3px;color:#0F766E;font-weight:700;margin:0">UNIVERSIDAD AUTÓNOMA TOMÁS FRÍAS • POTOSÍ</p>
+  <div style="width:100%;height:3px;background:linear-gradient(90deg,#0B2A4A,#F59E0B,#0F766E);margin:10px 0;border-radius:10px"></div>
+
+  <!-- Montaña + Cerro Rico estilo informe -->
+  <svg width="200" height="90" viewBox="0 0 200 90">
+    <path d="M10 80 L55 25 L75 50 L100 18 L125 50 L145 28 L190 80 Z" fill="#0B2A4A"/>
+    <path d="M100 18 L110 34 L100 40 L90 34 Z" fill="#F59E0B"/>
+    <circle cx="160" cy="22" r="10" fill="#F59E0B"/>
+    <!-- Pico -->
+    <line x1="30" y1="80" x2="55" y2="55" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+    <!-- Papa -->
+    <ellipse cx="160" cy="68" rx="16" ry="11" fill="#D9A066"/>
+  </svg>
+
+  <h1 style="font-size:34px;margin:2px 0 0;color:#0B2A4A;line-height:1;letter-spacing:1px">ANDES <span style="color:#F59E0B">TEC</span></h1>
+  <p style="font-size:14px;font-weight:800;color:#0B2A4A;letter-spacing:4px;margin:2px 0">POTOSÍ S.R.L.</p>
+  <p style="font-size:11px;color:#555;margin:6px 0 0">Tecnología hecha en Potosí, para mineros y agricultores</p>
+  <div style="margin-top:10px;display:flex;justify-content:center;gap:8px">
+    <span style="background:#0B2A4A;color:white;padding:5px 10px;border-radius:20px;font-size:11px;font-weight:700">⛏️ MINERÍA</span>
+    <span style="background:#0F766E;color:white;padding:5px 10px;border-radius:20px;font-size:11px;font-weight:700">🥔 AGRO</span>
+    <span style="background:#F59E0B;color:#111;padding:5px 10px;border-radius:20px;font-size:11px;font-weight:700">👀 REALIDAD AUMENTADA</span>
+  </div>
+</div>
+  <h1 style="font-size:30px;margin:14px 0 4px">ANDES <span style="color:#FFD166">TEC</span><br>POTOSÍ S.R.L.</h1>
+  <p style="font-size:13px;opacity:.9">Tecnología hecha en Potosí, para Potosí</p>
+  <div style="text-align:left;margin-top:18px;background:rgba(255,255,255,.12);padding:16px;border-radius:20px">
+    <b>👋 BIENVENIDO</b><p style="font-size:12px;opacity:.8">Elige qué eres y la app te muestra solo lo tuyo</p>
+    <input id="nombre" placeholder="👤 Tu nombre - Ej: Silvia">
+    <!-- AQUÍ ESTÁ EL CAMBIO IMPORTANTE -->
+    <select id="tipo">
+      <option value="Minero">⛏️ Soy Minero</option>
+      <option value="Agricultor">🥔 Soy Agricultor</option>
+      <option value="Ambos">⛏️🥔 Soy Minero y Agricultor</option>
+    </select>
+    <input placeholder="📱 WhatsApp - Ej: 71823456" type="tel">
+    <button class="btn btn-dorado" onclick="entrar()">ENTRAR A MI APP ➜</button>
+    <button class="btn btn-borde" onclick="entrarInvitado()">Entrar como invitado 👀 (muestra los dos)</button>
+    <p style="font-size:11px;text-align:center;margin-top:10px;opacity:.7">🔒 Tus datos están seguros • Funciona sin internet</p>
+  </div>
+</div>
+
+<!-- 2. PORTADA -->
+<div id="portada" class="pantalla" style="background:linear-gradient(180deg,#0B2A4A,#0F766E 55%,#070D1A);text-align:center">
+  <span class="badge">✦ HECHO EN POTOSÍ • BOLIVIA</span>
+  <div class="logo-box" style="margin-top:14px">
+    <svg width="112" height="112" viewBox="0 0 120 120"><circle cx="60" cy="60" r="56" fill="#0B2A4A"/><circle cx="60" cy="60" r="56" fill="none" stroke="#F59E0B" stroke-width="3"/><circle cx="60" cy="28" r="9" fill="#FFD166"/><path d="M12 78 L38 38 L52 58 L68 30 L108 78 Z" fill="#fff"/><ellipse cx="84" cy="84" rx="14" ry="11" fill="#D9A066"/><text x="60" y="110" text-anchor="middle" font-size="10" font-weight="800" fill="white">ANDES TEC</text></svg>
+  </div>
+  <h1 style="font-size:28px;margin:12px 0 4px">Hola, <span id="saludo" style="color:#FFD166">Silvia</span> 👋</h1>
+  <p id="texto-tipo" style="font-size:13px;opacity:.9">Mineria + Agrocultura</p>
+
+  <!-- STATS QUE TAMBIEN CAMBIAN -->
+  <div style="display:flex;gap:8px;margin-top:14px">
+    <div id="stat-minero" style="flex:1;background:rgba(255,255,255,.12);padding:12px;border-radius:14px;font-size:12px">⛏️<br><b>12 mineros</b><br>protegidos</div>
+    <div id="stat-agro" style="flex:1;background:rgba(255,255,255,.12);padding:12px;border-radius:14px;font-size:12px">🥔<br><b>30 chacras</b><br>avisadas</div>
+    <div style="flex:1;background:rgba(255,255,255,.12);padding:12px;border-radius:14px;font-size:12px">⭐<br><b>120 pts</b><br>Guardián</div>
+  </div>
+
+  <p style="margin-top:18px;font-weight:700">¿QUÉ QUIERES REVISAR HOY?</p>
+
+  <!-- BOTON MINERIA - TIENE ID -->
+  <div id="opcion-mineria" class="opcion" onclick="ir('mineria')"><div style="font-size:40px">⛏️</div><div><b>MINERÍA</b><br><span style="font-size:12px;opacity:.7">Gas, oxígeno y alarma</span><br><span style="color:#EF4444;font-weight:700;font-size:12px">● 1 ALERTA ACTIVA</span></div><div style="margin-left:auto;font-size:22px">›</div></div>
+
+  <!-- BOTON AGRO - TIENE ID -->
+  <div id="opcion-agro" class="opcion" onclick="ir('agro')"><div style="font-size:40px">🥔</div><div><b>AGRO</b><br><span style="font-size:12px;opacity:.7">Helada, humedad y tu papa</span><br><span style="color:#059669;font-weight:700;font-size:12px">● Helada esta noche</span></div><div style="margin-left:auto;font-size:22px">›</div></div>
+
+  <button id="btn-ra-portada" class="btn btn-dorado" onclick="ir('ra')">👀 VER EN REALIDAD AUMENTADA</button>
+  <button class="btn btn-blanco" onclick="ir('capacitacion')">🎓 JUGAR Y APRENDER - GANAR PUNTOS</button>
+  <button class="btn btn-borde" onclick="ir('login')">🔄 CAMBIAR DE PERFIL (Soy Minero / Agricultor)</button>
+</div>
+
+<!-- 3. MINERIA -->
+<div id="mineria" class="pantalla">
+  <button class="btn-volver" onclick="ir('portada')">‹ Volver</button>
+  <h1 style="margin:12px 0 4px">⛏️ MI MINA</h1><p style="font-size:13px;opacity:.8">Cerro Rico</p>
+  <div class="alerta" style="margin-top:14px"><b>🚨 ALERTA ACTIVA - HACE 2 MIN</b><h2 style="font-size:20px;margin:6px 0">¡PELIGRO! GAS EN LA MINA<br>¡SALGAN AHORA!</h2><p style="font-size:12px">Nivel 78% • 12 mineros dentro</p><button class="btn btn-blanco" onclick="alert('📞 Llamando a la cooperativa...')">📞 LLAMAR A COOPERATIVA</button><button class="btn btn-borde" onclick="this.parentElement.style.background='linear-gradient(135deg,#059669,#10B981)';this.parentElement.querySelector('h2').innerText='✅ TODO SEGURO'">✅ MARCAR COMO SEGURO</button></div>
+  <div class="card"><h3>SENSORES EN VIVO 🔴</h3><div class="grid" style="margin-top:12px"><div class="mini"><span>GAS METANO</span><b style="color:#FF6B6B">78% 🔴</b><div class="barra"><i style="width:78%"></i></div></div><div class="mini"><span>OXÍGENO</span><b style="color:#FBBF24">19.5%</b></div><div class="mini"><span>TEMPERATURA</span><b>24°C 🌡️</b></div><div class="mini"><span>MINEROS DENTRO</span><b>12 👷</b></div></div><button class="btn btn-dorado" onclick="ir('ra')">👀 VER MINA EN RA</button><button class="btn btn-borde" onclick="alert('📲 Alerta enviada por WhatsApp a 12 mineros')">📲 AVISAR POR WHATSAPP</button></div>
+  <div class="card"><h3>📋 HISTORIAL MINA</h3><p style="font-size:13px">✅ Hoy 10:00 - Todo seguro<br>🚨 Hoy 10:15 - Gas alto, salieron todos<br>✅ Ayer - Sin alertas</p></div>
+</div>
+
+<!-- 4. AGRO -->
+<div id="agro" class="pantalla">
+  <button class="btn-volver" onclick="ir('portada')">‹ Volver</button>
+  <h1 style="margin:12px 0 4px">🥔 MI CULTIVO SEGURO</h1><p style="font-size:13px;opacity:.8">Agricultura</p>
+  <div class="ok" style="margin-top:14px"><b>❄️ HELADA ESTA NOCHE -2°C</b><p style="font-size:13px;margin:6px 0">Tapa tu papa antes de las 6 pm.</p><button class="btn btn-blanco" onclick="alert('🔊 Audio en Quechua: Chiri tuta jamunqa, papa-ykita pampay...')">🔊 ESCUCHAR EN QUECHUA</button><button class="btn btn-borde" onclick="alert('✅ Alerta enviada a 30 agricultores por WhatsApp')">📲 AVISAR A MI COMUNIDAD</button></div>
+  <div class="card"><h3>SENSORES EN VIVO ❄️</h3><div class="grid" style="margin-top:12px"><div class="mini"><span>TEMPERATURA</span><b style="color:#60A5FA">-2°C ❄️</b></div><div class="mini"><span>HUMEDAD SUELO</span><b style="color:#FBBF24">30% 🟡</b></div><div class="mini"><span>LLUVIA</span><b>0% ☀️</b></div><div class="mini"><span>MI PAPA</span><b>Lista 🥔</b></div></div><button class="btn btn-dorado" onclick="ir('ra')">👀 VER MI CULTIVO EN RA</button></div>
+  <div class="card"><h3>🌱 CONSEJO DEL DÍA</h3><p style="font-size:13px">Si la temperatura baja de 0°, tapa tu papa con plástico y paja.</p></div>
+</div>
+
+<!-- 5. RA -->
+<div id="ra" class="pantalla">
+  <button class="btn-volver" onclick="ir('portada')">‹ Volver</button>
+  <h1 style="margin:12px 0 4px">👀 REALIDAD AUMENTADA</h1>
+  <div id="ra-mineria" class="ra-box"><div style="font-size:60px">🏔️</div><h2>MINA SEGURA</h2><p style="font-size:13px">🔴 Nube roja = GAS PELIGROSO</p><div style="background:#EF4444;padding:10px;border-radius:12px;margin-top:10px;font-weight:700">🔴 GAS 78% - ¡NO ENTRES!</div><button class="btn btn-dorado" onclick="alert('💨 ¡Mira! El gas rojo se está moviendo... ¡SAL!')">▶️ SIMULAR GAS EN RA</button></div>
+  <div id="ra-agro" class="ra-box" style="border-color:#059669"><div style="font-size:60px">🥔</div><h2>CULTIVO SEGURO</h2><p style="font-size:13px">🔵 Nube azul = HELADA</p><div style="background:#059669;padding:10px;border-radius:12px;margin-top:10px;font-weight:700">❄️ HELADA -2°C - ¡TAPA TU PAPA!</div><button class="btn btn-blanco" onclick="alert('❄️ ¡Mira! La helada azul está cayendo... ¡TÁPALA!')">▶️ SIMULAR HELADA EN RA</button></div>
+</div>
+
+<!-- 6. CAPACITACION -->
+<div id="capacitacion" class="pantalla">
+  <button class="btn-volver" onclick="ir('portada')">‹ Volver</button>
+  <h1 style="margin:12px 0 4px">🎓 APRENDE JUGANDO</h1>
+  <div class="puntos">⭐ Tienes 120 puntos • Guardián de Potosí 🏅</div>
+  <div id="preg-mineria" class="card"><h3>⛏️ PREGUNTA - MINERÍA</h3><p>Si suena la alarma de gas, ¿qué haces?</p><button class="btn btn-dorado" onclick="sumar(this)">1. SALIR CORRIENDO 🏃</button><button class="btn btn-borde" onclick="alert('❌ ¡CUIDADO! Nunca te quedes a mirar')">2. QUEDARME A MIRAR 👀</button></div>
+  <div id="preg-agro" class="card"><h3>🥔 PREGUNTA - AGRO</h3><p>Si hay helada esta noche, ¿qué haces?</p><button class="btn btn-dorado" onclick="sumar(this)">1. TAPAR MI PAPA 🥔</button><button class="btn btn-borde" onclick="alert('❌ Si no tapas, se congela y pierdes tu producto')">2. DEJARLA ASÍ 😴</button></div>
+</div>
+
+<!-- 7. PERFIL -->
+<div id="perfil" class="pantalla">
+  <button class="btn-volver" onclick="ir('portada')">‹ Volver</button>
+  <h1 style="margin:12px 0 4px">👤 MI PERFIL</h1>
+  <div class="card" style="text-align:center"><div style="font-size:60px">👩🏻</div><h2 id="nombrePerfil">Silvia</h2><p id="tipoPerfil" style="font-size:13px;opacity:.8">UATF Potosí • ANDES TEC</p><div class="puntos">⭐ 120 puntos • Guardián de Potosí</div></div>
+  <div class="card"><h3>⚙️ MI PLAN</h3><p style="font-size:13px">Plan: <b>Mensual Bs. 50</b><br>Kit instalado ✅</p><button class="btn btn-dorado" onclick="alert('✅ Pago registrado')">💳 PAGAR MI PLAN</button></div>
+  <button class="btn btn-borde" onclick="ir('login')">🚪 SALIR / CAMBIAR PERFIL</button>
+</div>
+
+<!-- MENU ABAJO -->
+<div class="tabs">
+  <div class="activo" onclick="ir('portada');activar(this)"><b>🏠</b>Inicio</div>
+  <div id="tab-mineria" onclick="ir('mineria');activar(this)"><b>⛏️</b>Mina</div>
+  <div id="tab-agro" onclick="ir('agro');activar(this)"><b>🥔</b>Chacra</div>
+  <div onclick="ir('ra');activar(this)"><b>👀</b>RA</div>
+  <div onclick="ir('capacitacion');activar(this)"><b>🎓</b>Aprender</div>
+  <div onclick="ir('perfil');activar(this)"><b>👤</b>Perfil</div>
+</div>
+
+<script>
+function ir(p){document.querySelectorAll('.pantalla').forEach(x=>x.classList.remove('activa'));document.getElementById(p).classList.add('activa');window.scrollTo(0,0);}
+function activar(el){document.querySelectorAll('.tabs div').forEach(d=>d.classList.remove('activo'));el.classList.add('activo');}
+
+function configurarVista(tipo){
+  // Por defecto muestra todo
+  let mostrarMinero = true, mostrarAgro = true;
+  if(tipo === 'Minero'){ mostrarMinero = true; mostrarAgro = false; }
+  if(tipo === 'Agricultor'){ mostrarMinero = false; mostrarAgro = true; }
+  if(tipo === 'Ambos'){ mostrarMinero = true; mostrarAgro = true; }
+
+  // Portada: botones grandes
+  document.getElementById('opcion-mineria').style.display = mostrarMinero ? 'flex' : 'none';
+  document.getElementById('opcion-agro').style.display = mostrarAgro ? 'flex' : 'none';
+  // Portada: estadisticas
+  document.getElementById('stat-minero').style.display = mostrarMinero ? 'block' : 'none';
+  document.getElementById('stat-agro').style.display = mostrarAgro ? 'block' : 'none';
+  // Menu abajo
+  document.getElementById('tab-mineria').style.display = mostrarMinero ? 'block' : 'none';
+  document.getElementById('tab-agro').style.display = mostrarAgro ? 'block' : 'none';
+  // RA
+  document.getElementById('ra-mineria').style.display = mostrarMinero ? 'block' : 'none';
+  document.getElementById('ra-agro').style.display = mostrarAgro ? 'block' : 'none';
+  // Preguntas
+  document.getElementById('preg-mineria').style.display = mostrarMinero ? 'block' : 'none';
+  document.getElementById('preg-agro').style.display = mostrarAgro ? 'block' : 'none';
+
+  // Texto arriba
+  if(tipo==='Minero') document.getElementById('texto-tipo').innerText='⛏️ Minero • Cerro Rico • Hoy 18°C ☀️';
+  if(tipo==='Agricultor') document.getElementById('texto-tipo').innerText='🥔 Agricultor • Hoy 18°C ☀️';
+  if(tipo==='Ambos') document.getElementById('texto-tipo').innerText='⛏️🥔 Minero y Agricultor • Cerro Rico • Tinguipaya';
+  document.getElementById('tipoPerfil').innerText = tipo + ' • UATF Potosí • ANDES TEC';
+}
+
+function entrar(){
+  let n = document.getElementById('nombre').value;
+  let tipo = document.getElementById('tipo').value;
+  if(n){ document.getElementById('saludo').innerText=n; document.getElementById('nombrePerfil').innerText=n; }
+  configurarVista(tipo);
+  // Si es solo uno, lo mandamos directo a su pantalla para que se vea el efecto
+  if(tipo==='Minero'){ ir('mineria'); }
+  else if(tipo==='Agricultor'){ ir('agro'); }
+  else { ir('portada'); }
+}
+function entrarInvitado(){ configurarVista('Ambos'); ir('portada'); }
+function sumar(btn){ alert('✅ ¡MUY BIEN! +20 puntos'); btn.style.background='#059669'; btn.style.color='white'; btn.innerText='✅ CORRECTO +20 PUNTOS'; }
+</script>
+</body>
+</html>
